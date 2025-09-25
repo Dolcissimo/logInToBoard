@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인 성공</title>
+
+    <style>
+        body {
+            background-color: #444444; /* 로그인 페이지와 동일한 배경색 */
+            color: #f5f5f5;            /* 밝은 회색 글자 */
+            font-family: Arial, sans-serif;
+            display: flex;             /* 중앙 배치 */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;             /* 화면 전체 높이 */
+            margin: 0;
+            text-align: center;        /* 텍스트 가운데 정렬 */
+            flex-direction: column;    /* 세로 방향 배치 */
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body>
+<h2>로그인 성공!</h2>
+<p th:text="'환영합니다, ' + ${name} + '님!'"></p>
+<a href="/login">다시 로그인하기</a>
+</body>
+</html>
