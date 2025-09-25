@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 목록</title>
+    <style>
+        body {
+            background-color: #444444; /* 어두운 회색 */
+            color: #f5f5f5;
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        a { color: #58a6ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #555;
+            text-align: left;
+        }
+        button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #58a6ff;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover { background-color: #4091e1; }
+    </style>
+</head>
+<body>
+<div>
+    <a href="/posts/new"><button>새 글 작성</button></a>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="post : ${posts}">
+        <td th:text="${post.id}"></td>
+        <td><a th:href="@{|/posts/${post.id}|}" th:text="${post.title}"></a></td>
+        <td th:text="${post.author}"></td>
+        <td th:text="${#temporals.format(post.createDate, 'yyyy-MM-dd HH:mm')}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
