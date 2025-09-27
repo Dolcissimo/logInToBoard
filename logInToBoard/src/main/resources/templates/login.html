@@ -9,7 +9,7 @@
             background-color: #444444; /* 배경 : 어두운 회색 */
             color: #f5f5f5;            /* 기본 글자 색 : 밝은 회색 */
             font-family: Arial, sans-serif;
-            display: flex;             /*  수평/수직 중앙 정렬용 */
+            display: flex;             /*  수평/수직 중앙 정렬 */
             justify-content: center;
             align-items: center;
             height: 100vh;             /* 화면 전체 높이 사용 */
@@ -73,6 +73,9 @@
 
     <!-- 에러 메시지 -->
     <p th:if="${error}" th:text="${error}"></p>
+    <p th:if="${param.needLogin}" style="color:#ff8a80;">
+        게시판은 로그인 후 이용할 수 있습니다.
+    </p>
 
     <form action="/login" method="post">
         <div>
