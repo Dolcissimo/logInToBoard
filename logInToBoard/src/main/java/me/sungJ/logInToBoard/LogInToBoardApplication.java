@@ -21,7 +21,7 @@ public class LogInToBoardApplication {
     @Bean
     CommandLineRunner initUser(UserService userService) {
         return args -> {
-            userService.register("test", "1234", "테스트유저");
+            userService.register("testUser", "123456", "테스트유저");
         };
     }
 
